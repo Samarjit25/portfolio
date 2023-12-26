@@ -52,7 +52,7 @@ nav ul li{
     padding: 0px 5px;     
 }
 nav ul li a{
-    color: black;
+    color: rgb(113, 113, 113);
     text-decoration: none;
     font-size:18px ;
     position: relative;
@@ -108,6 +108,10 @@ nav i{
 }
 .about-col-2{
     flex-basis: 60%;
+}
+.about-col-2 p{
+    margin-top: 9px;
+    
 }
 .sub-title{
     font-size: 60px;
@@ -293,7 +297,7 @@ nav i{
     display: inline-block;
 }
 .social-icons a:hover{
-    color: darkblue;
+    color: blue;
    
 }
 .btn.btn2{
