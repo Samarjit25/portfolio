@@ -172,3 +172,50 @@ html{
             transform: scale(0.98);
             box-shadow: 0 2px 10px rgba(255, 65, 108, 0.3);
         }
+
+        .uk-card {
+            position: relative;
+            background: #1a1a1a; /* Dark background */
+            border-radius: 12px;
+            overflow: hidden;
+            transition: box-shadow 0.4s ease-in-out;
+        }
+        
+        /* Thin Glowing Border */
+        .uk-card::before {
+            content: "";
+            position: absolute;
+            inset: 0; /* Covers the card */
+            border-radius: 12px;
+            padding: 0.75px; /* Border thickness */
+            background: linear-gradient(45deg, #ff00ff, #ffcc00, #00ffcc, #ff00ff);
+            background-size: 300% 300%;
+            animation: borderAnimation 3s infinite linear;
+            opacity: 0;
+            transition: opacity 0.4s ease-in-out;
+            z-index: 1;
+        
+            /* This makes sure only the border is visible */
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask-composite: exclude;
+            -webkit-mask-composite: exclude;
+        }
+        
+        /* Show border on hover */
+        .uk-card:hover::before {
+            opacity: 1;
+        }
+        
+        @keyframes borderAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        /* Ensure card content stays above */
+        .uk-card-body {
+            position: relative;
+            z-index: 2;
+        }
+        
